@@ -1,0 +1,28 @@
+name: Deploy Portfo
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Upload your entire repo as artifact for Pages
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      # Deploy to GitHub Pages
+      - id: deployment
+        uses: actions/deploy-pages@v4
