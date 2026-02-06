@@ -1,8 +1,4 @@
 window.APP_CONFIG = {
     RESTAPIURL: "http://127.0.0.1:5000/tlmanager",
-    COMPPROGURL: "http://localhost:5500"    
+    COMPPROGURL: "https://teodeloso106.github.io/portfo"    
 }
-// window.APP_CONFIG = {
-//     RESTAPIURL: "http://localhost:5000/tlmanager",
-//     COMPPROGURL: "http://192.168.1.7:5500"    
-// }
