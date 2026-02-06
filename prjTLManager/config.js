@@ -1,4 +1,4 @@
 window.APP_CONFIG = {
-    RESTAPIURL: "http://127.0.0.1:5000/tlmanager",
+    RESTAPIURL: "https://tlmanagerserver.onrender.com/tlmanager",
     COMPPROGURL: "https://teodeloso106.github.io/portfo"    
 }
