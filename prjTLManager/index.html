@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List Manager</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content shdwh1">
+            <h1>To-do List Manager</h1>
+            <p>
+                This tool will manage tasks, allowing users to add, view, 
+                modify and delete them.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-section">
+            <div class="list-container">
+                <ul>
+                    <li id="nw-itm">
+                        <input id="new-itm-chk" type="checkbox" />
+                        <input type="text" id="newTaskInput" placeholder="New task ..." />
+                        <button id="addTaskBtn" class="add-del-btn">Add Task</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="message">
+                <p id="limitMessage"></p>
+            </div>
+
+            <div class="list-container">
+                <ul id="todoList"></ul>
+                </ul>
+            </div>
+        </section>
+        <!--
+        <section class="main-section">
+            <p>database</p>
+            <pre id="DBContentContainer"></pre>
+        </section>
+        -->
+    </main>
+
+    <footer class="footer">
+        <p>TLManager 1.0</p>
+        <p>
+        © <span id="yr"></span> teo ·
+        <a id="comp-prog" href="#" target="_blank" rel="noopener">
+            ComputerProgrammer
+        </a>
+        </p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="TLManager-c.js"></script>
+</body>
+</html>

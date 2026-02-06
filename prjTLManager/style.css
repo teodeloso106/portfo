@@ -1,0 +1,199 @@
+/* reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ---------- header ---------- */
+header {
+    padding: 1.5rem;
+    background: #f4f4f4;
+}
+
+.header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ---------- main ---------- */
+main {
+    flex: 1;
+    padding: 1rem;
+}
+
+.main-section {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ---------- list ---------- */
+.list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-container li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0.5rem auto; /* centers li */
+}
+
+.list-container li input[type="text"] {
+    flex: 1; /* takes most of the space */
+    padding: 0.4rem;
+}
+
+/* ---------- message ---------- */
+.message {
+    text-align: center;
+    padding: 0.75rem;
+    background: #eef;
+    border-radius: 4px;
+}
+
+/* ---------- footer ---------- */
+footer {
+    padding: 1rem;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+
+/* ---------- a ---------- */
+footer p {
+    color: rgb(136, 134, 134);
+    margin: 0;
+}
+
+footer a {
+    color: rgb(136, 134, 134);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    padding: 0.5rem;
+    background: white;
+}
+
+.main-section {
+    gap: 0.5rem;
+    margin-top: 40px;
+}
+
+.hero {
+    min-height: 35vh;
+    background-image: url("TLManager.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background: 0;
+    color: rgb(53, 52, 52);
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: 8px;
+}
+
+.shdwh1 {
+  text-shadow:
+    0 0 5px rgb(211, 149, 67),
+    0 0 10px rgb(211, 149, 67),
+    0 0 20px rgb(211, 149, 67),
+    0 0 40px rgb(211, 149, 67);
+}
+
+.list-container li input[type="checkbox"] {
+    width: 28px;
+    height: 28px;
+    accent-color: #f4f4f4;
+}
+
+.list-container li input[type="text"] {
+    height: 30px;
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+    background: #f4f4f4;
+    font-size: 16px;
+}
+
+.list-container li input[type="text"]:focus-visible {
+    outline: none;
+    border-color: #f4f4f4;
+    box-shadow: 0 0 0 0.5px #777;
+    background: white;
+}
+
+.list-container li input[type="text"]:hover {
+    outline: none;
+    border-color: #f4f4f4;
+    box-shadow: 0 0 0 0.5px #777;
+    background: white;
+}
+
+.list-container li button {
+    min-height: 30px;
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+    background: #f4f4f4;
+    color: #777;
+    cursor: pointer;
+}
+
+.list-container li button:focus-visible {
+    outline: none;
+    border-color: #f4f4f4;
+    box-shadow: 0 0 0 0.5px #777;
+    background: white;
+}
+
+.list-container li button:hover {
+    background: white;
+    outline: none;
+    border-color: #f4f4f4;
+    box-shadow: 0 0 0 0.5px #777;
+}
+
+.list-container li {
+    background: #f4f4f4;
+    padding: 0.4rem;
+    margin: 0.3rem;
+    border-radius: 8px;
+}
+
+#nw-itm {
+    background: f4f4f4;
+}
+
+#new-itm-chk {
+    opacity: 0;
+}
