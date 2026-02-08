@@ -191,9 +191,18 @@ footer a:hover {
 }
 
 #nw-itm {
-    background: f4f4f4;
+    background: #f4f4f4;
 }
 
 #new-itm-chk {
     opacity: 0;
+}
+
+.list-container li {
+    align-items: center;
+    margin: 0.5rem auto; /* centers li */
+}
+
+.message {
+    color: #777;
 }

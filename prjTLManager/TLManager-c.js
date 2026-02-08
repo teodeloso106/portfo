@@ -21,6 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const limitMessage = document.getElementById("limitMessage");               // message shown when max reached
     const dbContentContainer = document.getElementById("DBContentContainer");   // for displaying the db content
 
+    let timer = null;
+
+    // helper function - starts time to communicate server
+    function startServerTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        let msgServer = "Communicating to server... "
+        let seconds = 0;
+        setLimitMessage(msgServer + "[" +seconds + "s]");
+
+        timer = setInterval(() => {
+                seconds++;
+                setLimitMessage(msgServer + "[" +seconds + "s]");
+            }, 1000
+        );
+    }
+
+    // helper function - stops time to communicate server
+    function stopServerTimer() {
+        clearInterval(timer);
+        timer = null;
+        setLimitMessage("");
+    }
+
     // helper function - generate unique id for each task
     function generateId() {
         return Date.now().toString();
@@ -56,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
      *  Read (GET) operation
      */
     async function loadData(){
+        startServerTimer();
 
         // retreive all tasks from the database
         const res = await fetch(API_URL);
@@ -90,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // display db content (JSON format) to keep it current
         //DisplayDBContent(dbData);
+
+        stopServerTimer();
     }
 
     /**

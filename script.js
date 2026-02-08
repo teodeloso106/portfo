@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('yr').textContent = 
         new Date().getFullYear();
     
-    document.getElementById('to-do-list').href = 
+    document.getElementById('tlmanager-crdlnk').href = 
+        window.APP_CONFIG.TLMANAGER;
+    document.getElementById('tlmanager-crdlnk2').href = 
         window.APP_CONFIG.TLMANAGER;
 
     document.getElementById('mail-to').href = 
