@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById("addTaskBtn");                   // "Add Task" button
     const limitMessage = document.getElementById("limitMessage");               // message shown when max reached
     const dbContentContainer = document.getElementById("DBContentContainer");   // for displaying the db content
+    const addTk = document.getElementById("nw-itm-container");
+    const tkList = document.getElementById("itm-container");
+    const ADDTK_HIDE = "nw-itm-hidden";
 
     let timer = null;
 
@@ -83,43 +86,50 @@ document.addEventListener('DOMContentLoaded', () => {
      *  Read (GET) operation
      */
     async function loadData(){
-        startServerTimer();
+        addTk.classList.add(ADDTK_HIDE);
+        tkList.classList.add(ADDTK_HIDE);
+        try {
+            startServerTimer();
+        
+            // retreive all tasks from the database
+            const res = await fetch(API_URL);
+            const dbData = await res.json();
 
-        // retreive all tasks from the database
-        const res = await fetch(API_URL);
-        const dbData = await res.json();
+            // clear current tasks displayed (if any)
+            todoList.innerHTML = "";
 
-        // clear current tasks displayed (if any)
-        todoList.innerHTML = "";
+            // go through each item in the database
+            dbData.forEach(dbDataItm => {
 
-        // go through each item in the database
-        dbData.forEach(dbDataItm => {
+                // create the DOM of the dbDataItm.
+                // this is the <li>
+                const li = document.createElement("li");
 
-            // create the DOM of the dbDataItm.
-            // this is the <li>
-            const li = document.createElement("li");
+                li.classList.add("listitm");
 
-            li.classList.add("listitm");
+                // store the dbDataItm id on the <li> so we can find it in event delegation
+                li.dataset.id = dbDataItm.id;
+                
+                // build the <li> content of the task.
+                // this is a row that contains a checkbox, text field, delete button
+                li.innerHTML = `
+                    <input type="checkbox" ${dbDataItm.status === "1" ? "checked" : ""}>
+                    <input type="text" value="${dbDataItm.task}" ${dbDataItm.status === "1" ? "readonly" : ""}>
+                    <button class="delete-btn add-del-btn">Delete</button>
+                `;
 
-            // store the dbDataItm id on the <li> so we can find it in event delegation
-            li.dataset.id = dbDataItm.id;
+                // add the <li> to the <ul>
+                todoList.appendChild(li);
+            });
+
+            // display db content (JSON format) to keep it current
+            //DisplayDBContent(dbData);
             
-            // build the <li> content of the task.
-            // this is a row that contains a checkbox, text field, delete button
-            li.innerHTML = `
-                <input type="checkbox" ${dbDataItm.status === "1" ? "checked" : ""}>
-                <input type="text" value="${dbDataItm.task}" ${dbDataItm.status === "1" ? "readonly" : ""}>
-                <button class="delete-btn add-del-btn">Delete</button>
-            `;
-
-            // add the <li> to the <ul>
-            todoList.appendChild(li);
-        });
-
-        // display db content (JSON format) to keep it current
-        //DisplayDBContent(dbData);
-
-        stopServerTimer();
+            stopServerTimer();
+        } finally {
+            addTk.classList.remove(ADDTK_HIDE);
+            tkList.classList.remove(ADDTK_HIDE);
+        }
     }
 
     /**
