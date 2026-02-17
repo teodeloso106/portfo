@@ -19,10 +19,42 @@
                 This tool will manage tasks, allowing users to add, view, 
                 modify and delete them.
             </p>
+            <button id="howtoDialogOpenBtn" class="shdwh1">→ How-To...</button>
         </div>
     </header>
 
     <main>
+        <dialog id="howtoDialog">
+            <h2>To-do List Manager usage:</h2>
+            <p>
+                <h4>Adding a new task</h4>
+                <p>
+                    Using the 'New task...' text box, enter the name of the task and click the 'Add Task' button.
+                </p>
+            </p>
+            <p>
+                <h4>Marking a completed task</h4>
+                <p>
+                    Click the box that is to the left of the name of the task. When a task is checked, the name 
+                    of the task cannot be modified.
+                </p>
+            </p>
+            <p>
+                <h4>Modifying the name of a task</h4>
+                <p>
+                    Click the name of the task and it will transform into a text box where you can modify its name. 
+                    Click the 'Update' button to complete the process. Task name that contains an empty or space-only 
+                    character will not complete the process.
+                </p>
+            </p>
+            <p>
+                <h4>Delete a task</h4>
+                <p>
+                    Click the 'Delete' button and the task will be deleted.
+                </p>
+            </p>
+            <button id="howtoDialogCloseBtn">close</button>
+        </dialog>
         <section class="main-section">
             <div id="nw-itm-container" class="list-container">
                 <ul>

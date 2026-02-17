@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTk = document.getElementById("nw-itm-container");
     const tkList = document.getElementById("itm-container");
     const ADDTK_HIDE = "nw-itm-hidden";
+    const howtoDiag = document.getElementById('howtoDialog');
+    const howtoDiagOpenBtn = document.getElementById('howtoDialogOpenBtn');
+    const howtoDiagCloseBtn = document.getElementById('howtoDialogCloseBtn');
 
     let timer = null;
 
@@ -341,6 +344,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // event listeners - event delegation on the <ul> container
     todoList.addEventListener("click", handleListClick);
     todoList.addEventListener("input", handleListInput);
+
+    howtoDiagOpenBtn.addEventListener("click", () => {
+        howtoDiag.showModal();
+    });
+    
+    howtoDiagCloseBtn.addEventListener("click", () => {
+        howtoDiag.close();
+    });
 
     /**
      *  Initial display of the database content (if any)
