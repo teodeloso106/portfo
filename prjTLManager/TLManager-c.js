@@ -68,18 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // helper function - find a task in the database by its id
     async function findTodoById(id) {
-        const res = await fetch(API_URL);
-        const dbData = await res.json();
+        //try {
+        //    startServerTimer();
 
-        return dbData.find(todo => todo.id === id);
+            const res = await fetch(API_URL);
+            const dbData = await res.json();
+
+            return dbData.find(todo => todo.id === id);
+        //} finally {
+        //    stopServerTimer();
+        //}
     }
 
     // helper function - returns true if a task can still be added to the database
     async function canAddTask() {
-        const res = await fetch(API_URL);
-        const dbData = await res.json();
+        try {
+            startServerTimer();
+            
+            const res = await fetch(API_URL);
+            const dbData = await res.json();
 
-        return dbData.length < MAX_TASKS;
+            return dbData.length < MAX_TASKS;
+        } finally {
+            stopServerTimer();
+        }
     }
 
     /**
@@ -141,13 +153,19 @@ document.addEventListener('DOMContentLoaded', () => {
      *  Create (POST) operation
      */
     async function saveData(id, task, status){
-        await fetch(API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({"id": id, 
-                                "task": task, 
-                                "status": status})
-        });
+        try {
+            startServerTimer();
+            
+            await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({"id": id, 
+                                    "task": task, 
+                                    "status": status})
+            });
+        } finally {
+            stopServerTimer();
+        }
 
         // display db content (JSON format) to keep it current
         loadData();
@@ -159,12 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
      *  Update (PATCH) operation
      */
     async function updateDataStatus(id, status) {
-        await fetch(API_URL, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({"id": id, 
-                                "status": status})
-        });
+        try {
+            startServerTimer();
+            
+            await fetch(API_URL, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({"id": id, 
+                                    "status": status})
+            });
+        } finally {
+            stopServerTimer();
+        }
 
         // display db content (JSON format) to keep it current
         loadData();
@@ -175,12 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
      * 
      */
     async function updateDataTask(id, task) {
-        await fetch(API_URL, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({"id": id, 
-                                "task": task})
-        });
+        try {
+            startServerTimer();
+            
+            await fetch(API_URL, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({"id": id, 
+                                    "task": task})
+            });
+        } finally {
+            stopServerTimer();
+        }
 
         // display db content (JSON format) to keep it current
         loadData();
@@ -192,10 +222,15 @@ document.addEventListener('DOMContentLoaded', () => {
      *  Delete (DELETE) operation
      */
     async function deleteData(todoId) {
-        
-        //append data id in the url
-        await fetch(API_URL + "/" + todoId, {
-            method: "DELETE"});
+        try {
+            startServerTimer();
+            
+            //append data id in the url
+            await fetch(API_URL + "/" + todoId, {
+                method: "DELETE"});
+        } finally {
+            stopServerTimer();
+        }
 
         // display db content (JSON format) to keep it current
         loadData();
@@ -348,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
     howtoDiagOpenBtn.addEventListener("click", () => {
         howtoDiag.showModal();
     });
-    
+
     howtoDiagCloseBtn.addEventListener("click", () => {
         howtoDiag.close();
     });
