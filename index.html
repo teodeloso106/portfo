@@ -17,7 +17,7 @@
             <h1 class="shdwh1">Hi, I'm teo 👋</h1>
             <p class="shdwh1">Computer Programmer</p>
             <nav>
-                <a class="h-nav-btn shdwh1" href="#projects">Projects</a>
+                <a class="h-nav-btn shdwh1" href="#projects">Demos</a>
                 <a class="h-nav-btn shdwh1" href="#contact">Contact</a>
             </nav>
         </div>
@@ -37,42 +37,81 @@
         <section class="list">
             <h2>Familiar with Software Development Technologies</h2>
             <ul>
-                <li>-> Python/JS/HTML/CSS/Java/C/C++/VB /Batchscript/Bashscript</li>
+                <li>-> Python/JS/HTML/CSS/ReactJS/NextJS/NodeJS /Java/C/C++/VB</li>
                 <li>-> SQL(DDL/DQL/DML)/(R)DBMS(MySQL, PostgreSQL, Oracle, MSSQLServer, MSAccess)</li>
                 <li>-> VSCode/Notepad++/NetBeans /CrystalReports/MSVB</li>
                 <li>-> Git/GitHub/SVN/InstallShield /SetupFactory(LuaScripting)</li>
                 <li>-> Prompt Engineering</li>
                 <li>-> VirtualBox/VMWare/MSWSL</li>
-                <li>-> Microsoft Windows</li>
-                <li>-> Linux (Ubuntu/SUSE/OpenSUSE/CentOS/Fedora)</li>
+                <li>-> Microsoft Windows/Batchscript</li>
+                <li>-> Linux/Bashscript (Ubuntu/SUSE/OpenSUSE/CentOS/Fedora)</li>
             </ul>
-            <h2>Projects</h2>
+            <h2>Demos</h2>
         </section>
 
-        <section id="projects" class="grid">
-            <!--<h2>Projects</h2>-->
+        <section id="projects" class="card-grid">
+            
             <article class="card">
-                <a id="tlmanager-crdlnk" href="#" target="_blank" rel="noopener">
-                    <img src="images/TLMprevw4.jpg" alt="to-do list manager preview">
-                    <h2>To-do List Manager</h2>
-                    <p>
-                        A simple productivity tool used to track tasks to ensure they are completed. It helps 
-                        reduce mental load by capturing tasks in one place, prevents forgetting important items, 
-                        and boost motivation through the satisfaction of checking items off.
-                    </p>
-                    <p>I did this to familiarize the REST API technology.</p>
-                </a>
-                <a id="tlmanager-crdlnk2" href="#" target="_blank" rel="noopener">Launch to-do list manager →</a>
+                <div class="card-content">
+                    <div class="image-wrapper">
+                        <img src="images/TLMprevw4.jpg" alt="to-do list manager preview">
+                    </div>
+                    <h2><a id="tlmanager-crdlnk" href="#" target="_blank" rel="noopener" class="card-title-link">To-do List Manager</a></h2>
+                    <div class="description-container">
+                        <p class="truncate-text" data-full-text="">
+                            A simple productivity tool used to track tasks to ensure they are completed. It helps
+                            reduce mental load by capturing tasks in one place, prevents forgetting important items,
+                            and boost motivation through the satisfaction of checking items off.
+                        </p>
+                        <p class="truncate-text" data-full-text="">
+                            I did this to reacquaint with REST API technology.
+                        </p>
+                    </div>
+                </div>
+                <a id="tlmanager-crdlnk2" href="#" target="_blank" rel="noopener" class="card-action-link">Launch →</a>
             </article>
+
             <article class="card">
-                <a id="crdlnk" href="#" target="_blank" rel="noopener">
-                    <img src="images/teobrews.gif" alt="project preview">
-                    <h2>Currently brewing ...</h2>
-                    <p>Stay tuned.</p>
+                <div class="card-content">
+                    <div class="image-wrapper">
+                        <img src="images/budgettracker-scrsht3.jpg" alt="Budget Tracker App preview">
+                    </div>
+                    <h2><a id="btapp-crdlnk" href="#" target="_blank" rel="noopener" class="card-title-link">
+                        Budget Tracker App</a>
+                    </h2>
+                    <div class="description-container">
+                        <p class="truncate-text" data-full-text="">
+                            A simple productivity tool that helps track expenses base on a budget. It helps
+                            reduce mental load by capturing expenses in one place.
+                        </p>
+                        <p class="truncate-text" data-full-text="">
+                            I did this to reacquaint with ReactJS/NextJS/NodeJS technology.
+                        </p>
+                    </div>
+                </div>
+                <a id="btapp-crdlnk2" href="#" target="_blank" rel="noopener" class="card-action-link">
+                    Launch →
                 </a>
-            </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content">
+                    <div class="image-wrapper">
+                        <img src="images/teobrews.gif" alt="Currently brewing a project...">
+                    </div>
+                    <h2><a id="crdlnk" href="#" target="_blank" rel="noopener" class="card-title-link">Currently brewing ...</a></h2>
+                    <div class="description-container">
+                        <p class="truncate-text" data-full-text="">
+                            Stay tuned.
+                        </p>
+                        <p class="truncate-text" data-full-text="">&nbsp;</p>
+                    </div>
+                </div>
+            </article>
+
         </section>
 
+        
         <section id="contact" class="contact">
             <h2>Contact</h2>
             <p>If I can be of assistance, please do not hesitate to drop me a line or just say hi ?</p>
@@ -88,6 +127,14 @@
         </a>
         </p>
     </footer>
+
+    <!-- mobile-friendly dialog modal -->
+    <dialog id="tooltip-modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+            <button id="close-modal" type="button">Close</button>
+        </div>
+    </dialog>
 
     <script src="config.js"></script>
     <script src="script.js"></script>

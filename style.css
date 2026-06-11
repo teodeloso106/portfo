@@ -286,23 +286,6 @@ li {
     color: #f4f4f4;
 }
 
-.card p {
-    margin: 1ch;
-}
-
-.card a {
-    padding: 8px 14px;
-    border-radius: 8px;
-    color: #777;
-    text-decoration: none;
-    text-align: left;
-}
-
-.card a:hover {
-    background: #f4f4f4;
-    color: gray;
-}
-
 #crdlnk, 
 #tlmanager-crdlnk {
     background: none;
@@ -313,4 +296,185 @@ li {
     background: #f4f4f4;
     color: black;
     opacity: 0.3;
+}
+
+
+/* =====   re-define project section   ===== */
+
+/* Mobile First Grid Strategy */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column by default on mobile devices */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Desktop Breakpoint Override */
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns per row on desktop */
+  }
+}
+
+/* Fixed Layout Card Design */
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  height: 430px; /* 460px; /* Fixed card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+  /* acts as the boundary wall for our invisible link overlay */
+  position: relative; 
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  /*gap: 12px; */
+  overflow: hidden;
+
+}
+
+.card-content h2 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+}
+
+/* Fixed Size Contained Image Section */
+.image-wrapper {
+  width: 100%;
+  height: 100px; /* 180px; /* Constant, unchanging height across screens */
+  background-color: white; /* #eaeaea; */
+  border-radius: 4px;
+  overflow: hidden;
+  
+  /*border: 0.5px solid rgb(201, 197, 197);*/
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Contain asset completely inside without clipping */
+}
+
+/* Typography styles */
+.card-title-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.25rem;
+  cursor: default;
+
+}
+
+.card-title-link:hover {
+  text-decoration: none;
+}
+
+.card-action-link {
+  color: gray; /* #0066cc; */
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* Multi-line Text Truncation Area */
+.truncate-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit text to no. of lines maximum */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* cursor: pointer; */
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  cursor: default;
+}
+
+/* applied if text actually truncates */
+.truncate-text.is-truncated {
+  cursor: pointer;
+}
+
+.truncate-text.is-truncated:hover {
+  color: #000; /* Subtle text glow accent only when actionable */
+}
+
+/* Native HTML Dialog Tooltip Styles */
+dialog {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 24px;
+  max-width: 90%;
+  width: 400px;
+  margin: auto; /* Centers the dialog on screen perfectly */
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Dim user focus background */
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#modal-text {
+  color: #333;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+#close-modal {
+  align-self: flex-end;
+  padding: 8px 16px;
+  background-color: #f4f4f4;
+  color: gray;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#close-modal:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f4f4f4;
+}
+
+/* separate like paragraph */
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+}
+
+/* Create an invisible hit-box that stretches over the whole card */
+.card-title-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Spreads across the entire card background */
+}
+
+/* Lift interactive elements ABOVE the invisible link overlay */
+.truncate-text,
+.card-action-link {
+  position: relative;
+  z-index: 2; /* Forces these to stay on top so they remain clickable */
 }

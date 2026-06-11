@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const API_URL = window.APP_CONFIG.RESTAPIURL;
     document.getElementById("comp-prog").href = window.APP_CONFIG.COMPPROGURL;
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    document.getElementById('yr').textContent = "2026"; //new Date().getFullYear();
 
     // maximum tasks allowed
     const MAX_TASKS = 10;
