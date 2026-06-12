@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
                 <div>
                   <h4 className="font-bold text-slate-700">View User Expenses</h4>
                   <p>
-                    Click or <span className="italic bg-slate-500 text-slate-300">tap twice</span> on a user from the list of existing users.
+                    Double-click or <span className="italic bg-slate-500 text-slate-300">tap twice</span> on a user from the list of existing users.
                   </p>
                 </div>
 
