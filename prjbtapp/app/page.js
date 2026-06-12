@@ -180,7 +180,7 @@ export default function Home() {
 
     <div className="flex flex-col items-center justify-center">
       
-      <Button className="w-50 border mb-6 border-slate-800 text-slate-800 bg-slate-400 px-3 py-2 rounded 
+      <Button className="w-50 border mb-6 border-slate-800 text-slate-800 bg-slate-300 px-3 py-2 rounded 
               hover:cursor-pointer hover:font-medium hover:text-black transition"
               onClick={btnNewUserLabelOnClick}>
         {btnNewUserLabel}
@@ -188,19 +188,19 @@ export default function Home() {
       
       {showForm && (
         <div className="flex flex-col space-y-4 max-w-sm mx-auto p-6">
-          <Input className="w-full border border-slate-800 bg-slate-400/40 text-slate-800 rounded-md p-2 text-sm"
+          <Input className="w-full border border-slate-800 bg-slate-300 text-gray-600 rounded-md p-2 text-sm"
              placeholder="your user name"
              value={name}
              onChange={e => setName(e.target.value)}
           />
 
-          <Input className="w-full border border-slate-800 bg-slate-400/40 text-slate-800 rounded-md p-2 text-sm"
+          <Input className="w-full border border-slate-800 bg-slate-300 text-gray-600 rounded-md p-2 text-sm"
              placeholder="your budget"
              value={budget}
              onChange={e => setBudget(e.target.value)}
           />
 
-          <Button className="border border-slate-800 text-slate-800 bg-slate-400 px-3 py-2 rounded 
+          <Button className="border border-slate-800 text-slate-800 bg-slate-300 px-3 py-2 rounded 
                   hover:cursor-pointer hover:font-medium hover:text-black transition"
                   onClick={createUser}>
             Create
@@ -239,7 +239,7 @@ export default function Home() {
       </div>
       */ }
 
-      <div className="w-full p-1 text-slate-800 bg-slate-400/40 rounded-xl shadow">
+      <div className="w-full p-1 text-gray-600 rounded-xl shadow">
         <ul className="mx-auto">
           {users.map(user => {
             const isRowRevealed = activeRowId === user.userId;
@@ -247,7 +247,7 @@ export default function Home() {
             return (
               <li key={user.userId}
                   className={`group flex justify-between items-center p-1 rounded-lg 
-                              ${isRowRevealed ? 'bg-slate-400' : 'hover:bg-slate-400'}`}
+                              ${isRowRevealed ? 'bg-slate-300' : 'hover:bg-slate-300 hover:font-bold'}`}
                   onClick={() => handleRowClick(user.userId)}>
 
                 <div className="font-mono whitespace-pre">
@@ -256,7 +256,7 @@ export default function Home() {
 
                 <div>
                   <Button className={`
-                          group/btn relative text-slate-800 bg-slate-400 px-3 py-2 rounded hover:cursor-pointer flex 
+                          group/btn relative text-gray-600 bg-slate-300 px-3 py-2 rounded hover:cursor-pointer flex 
                           items-center justify-center transition-all 
                           ${isRowRevealed ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'} 
                           group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto `}
@@ -266,7 +266,7 @@ export default function Home() {
                           }}>
                     <img src="/delete.png" alt="" className="w-5 h-5 object-contain" />
                     <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
-                          whitespace-nowrap rounded bg-slate-400 px-2 py-1 text-xs text-slate-800 opacity-0 
+                          whitespace-nowrap rounded bg-slate-300 px-2 py-1 text-xs text-gray-600 opacity-0 
                           group-hover/btn:opacity-100 transition-opacity duration-150">
                       Delete
                     </span>

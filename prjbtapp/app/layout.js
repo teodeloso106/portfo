@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         {/* shared global top navigation navbar */}
 
         {/* viewport layout */}
-        <div className="min-h-screen flex flex-col bg-gray-400 text-slate-100 antialiased">
+        <div className="min-h-screen flex flex-col text-slate-100 antialiased">
 
           {/* title section */}
           <section className="relative w-full min-h-[20vh] py-12 flex flex-col items-center justify-center 
@@ -96,9 +96,16 @@ export default function RootLayout({ children }) {
                 </div>
 
                 <div>
+                  <h4 className="font-bold text-slate-700">View User Expenses</h4>
+                  <p>
+                    Click or <span className="italic bg-slate-500 text-slate-300">tap twice</span> on a user from the list of existing users.
+                  </p>
+                </div>
+
+                <div>
                   <h4 className="font-bold text-slate-700">Delete User</h4>
                   <p>
-                    Hover the mouse pointer on a user from the list of existing users. Click the {" "}
+                    Hover the mouse pointer or <span className="italic bg-slate-500 text-slate-300">tap once</span> on a user from the list of existing users. Click the {" "}
                     <span className="italic bg-slate-500 text-slate-300">delete</span> icon.
                   </p>
                 </div>
@@ -118,7 +125,7 @@ export default function RootLayout({ children }) {
                 <div>
                   <h4 className="font-bold text-slate-700">Delete Expense</h4>
                   <p>
-                    Hover the mouse pointer on an expense from the list of expenses. Click the {" "}
+                    Hover the mouse pointer or <span className="italic bg-slate-500 text-slate-300">tap once</span> on an expense from the list of expenses. Click the {" "}
                     <span className="italic bg-slate-500 text-slate-300">delete</span> icon.
                   </p>
                 </div>

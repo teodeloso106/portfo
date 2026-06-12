@@ -145,11 +145,11 @@ export default function UserPage() {
 
       <div className="m-1 flex flex-col space-y-4 max-w-sm mx-auto">
         <Button className="w-20 group-hover:visible group/btn relative text-slate-800 px-3 py-2 hover:cursor-pointer  
-                flex items-center justify-center bg-gray-400"
+                flex items-center justify-center bg-white"
                 onClick={() => router.push('/')}>
           <img src="/home.png" alt="" className="object-contain" />
           <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
-                          whitespace-nowrap rounded bg-slate-400 px-2 py-1 text-xs text-slate-800 opacity-0 
+                          whitespace-nowrap rounded bg-white px-2 py-1 text-xs text-slate-800 opacity-0 
                           group-hover/btn:opacity-100 transition-opacity duration-150">
             Home
           </span>
@@ -157,25 +157,25 @@ export default function UserPage() {
       </div>
 
       <div className="m-1 flex flex-col max-w-sm mx-auto">
-        <h2 className="text-xl font-bold mt-4 text-slate-800/50">
+        <h2 className="text-xl font-bold mt-4 text-gray-500">
           {user.userName}
         </h2>
       </div>
 
       <div className="m-1 mt-0 flex flex-col space-y-2 max-w-sm mx-auto p-3">
-        <Input className="w-50 border border-slate-800 bg-slate-400/40 text-slate-800 rounded-md p-2 text-sm"
+        <Input className="w-50 border border-slate-800 bg-slate-300 text-slate-800 rounded-md p-2 text-sm"
           placeholder="your expense name"
           value={name}
           onChange={e => setName(e.target.value)}
         />
 
-        <Input className="w-50 border border-slate-800 bg-slate-400/40 text-slate-800 rounded-md p-2 text-sm"
+        <Input className="w-50 border border-slate-800 bg-slate-300 text-slate-800 rounded-md p-2 text-sm"
           placeholder="your amount"
           value={amt}
           onChange={e => setAmt(e.target.value)}
         />
 
-        <Button className="border border-slate-800 text-slate-800 bg-slate-400 px-3 py-2 rounded 
+        <Button className="border border-slate-800 text-slate-800 bg-slate-300 px-3 py-2 rounded 
                 hover:cursor-pointer hover:font-medium hover:text-black transition"
                 onClick={addExpense}>
           Add Expense

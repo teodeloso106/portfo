@@ -478,3 +478,7 @@ dialog::backdrop {
   position: relative;
   z-index: 2; /* Forces these to stay on top so they remain clickable */
 }
+
+.card-action-link:hover {
+  color: black;
+}
