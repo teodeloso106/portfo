@@ -247,7 +247,7 @@ export default function Home() {
             return (
               <li key={user.userId}
                   className={`group flex justify-between items-center p-1 rounded-lg 
-                              ${isRowRevealed ? ' ' : 'hover:bg-slate-400'}`}
+                              ${isRowRevealed ? 'bg-slate-400' : 'hover:bg-slate-400'}`}
                   onClick={() => handleRowClick(user.userId)}>
 
                 <div className="font-mono whitespace-pre">
