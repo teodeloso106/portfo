@@ -23,6 +23,9 @@ export default function Home() {
   const [timer, setTimer] = useState(0);
   const timerRef = useRef(null);
 
+  // Track which specific row is currently "active/revealed" on mobile
+  const [activeRowId, setActiveRowId] = useState(null);
+
   const timerStart = () => {
     setTimer(0);
     //tick every 1 sec
@@ -147,6 +150,25 @@ export default function Home() {
     return formattedBudget.padStart(10, " ");
   };
 
+  //mobile hover functionality
+  const handleRowClick = (userId) => {
+    // Check if we are on a touchscreen device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      if (activeRowId === userId) {
+        // If the row is already open, the second tap routes to the page
+        router.push(`/user/${userId}`);
+      } else {
+        // First tap opens the button menu on mobile
+        setActiveRowId(userId);
+      }
+    } else {
+      // Desktop mouse users route instantly on click
+      router.push(`/user/${userId}`);
+    }
+  };
+
   return (<>
     <div className="h-20 flex flex-col items-center justify-center">
       {appMessage && (
@@ -186,6 +208,7 @@ export default function Home() {
         </div>
       )}
 
+      { /*
       <div className="w-full p-1 text-slate-800 bg-slate-400/40 rounded-xl shadow">
         <ul className="mx-auto">
           {users.map(user => (
@@ -212,6 +235,47 @@ export default function Home() {
 
             </li>
           ))}
+        </ul>
+      </div>
+      */ }
+
+      <div className="w-full p-1 text-slate-800 bg-slate-400/40 rounded-xl shadow">
+        <ul className="mx-auto">
+          {users.map(user => {
+            const isRowRevealed = activeRowId === user.userId;
+
+            return (
+              <li key={user.userId}
+                  className={`group flex justify-between items-center p-1 rounded-lg 
+                              ${isRowRevealed ? ' ' : 'hover:bg-slate-400'}`}
+                  onClick={() => handleRowClick(user.userId)}>
+
+                <div className="font-mono whitespace-pre">
+                  {formatBudget(user.userBudgetTotalAmt)} → {user.userName} 
+                </div>
+
+                <div>
+                  <Button className={`
+                          group/btn relative text-slate-800 bg-slate-400 px-3 py-2 rounded hover:cursor-pointer flex 
+                          items-center justify-center transition-all 
+                          ${isRowRevealed ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'} 
+                          group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto `}
+                          onClick={(bttn) => {
+                            bttn.stopPropagation();
+                            deleteUser(bttn, user.userId);
+                          }}>
+                    <img src="/delete.png" alt="" className="w-5 h-5 object-contain" />
+                    <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
+                          whitespace-nowrap rounded bg-slate-400 px-2 py-1 text-xs text-slate-800 opacity-0 
+                          group-hover/btn:opacity-100 transition-opacity duration-150">
+                      Delete
+                    </span>
+                  </Button>
+                </div>
+              </li>
+            );
+
+          })}
         </ul>
       </div>
 
